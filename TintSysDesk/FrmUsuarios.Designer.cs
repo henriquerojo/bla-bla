@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInserir = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -54,14 +54,14 @@
             this.label1.Text = "ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // btnInserir
             // 
-            this.button1.Location = new System.Drawing.Point(125, 276);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Inserir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInserir.Location = new System.Drawing.Point(125, 276);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(75, 23);
+            this.btnInserir.TabIndex = 1;
+            this.btnInserir.Text = "Inserir";
+            this.btnInserir.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -190,7 +190,7 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.label1);
             this.Name = "FrmUsuarios";
             this.Text = "Administração de Usuários";
@@ -203,7 +203,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtID;
