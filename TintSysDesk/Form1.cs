@@ -29,12 +29,12 @@ namespace TintSysDesk
             comboBox1.DisplayMember = "Name";
             comboBox1.ValueMember = "Id";
             
-            //Nivel nivel = new Nivel("Gerente", "GER");
-            //nivel.Inserir();
-            //if (nivel.Id > 0)
-            //{
-            //    MessageBox.Show(nivel.Id.ToString());
-            //}
+            Nivel nivel = new Nivel("Gerente", "GER");
+            nivel.Inserir();
+            if (nivel.Id > 0)
+            {
+                MessageBox.Show(nivel.Id.ToString());
+            }
         }
     }
 }
