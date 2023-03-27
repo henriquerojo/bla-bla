@@ -1,8 +1,9 @@
-﻿using System;
+﻿                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
@@ -18,6 +19,8 @@ namespace TintSysClass
         private string cpf;
         private string email;
         private DateTime datacad;
+        private List<Endereco> enderecos;
+        private List<Telefone> telefones;
         private bool ativo;
 
         // Propriedade (Encapsulamento)
@@ -26,13 +29,37 @@ namespace TintSysClass
         public string Nome { get => nome; set => nome = value; }
         public string Cpf { get => cpf; set => cpf = value; }
         public string Email { get => email; set => email = value;}
-        public DateTime Datacad { get => datacad; set => datacad = value;}
+        public DateTime Datacad { get => datacad; set => datacad = value; }
+        public List<Endereco> Enderecos  { get => enderecos; set => enderecos = value; }
+        public List<Telefone> Telefones { get => telefones; set => telefones = value; }
         public bool Ativo { get => ativo; set => ativo = value;}
 
         // Métodos Construtores
 
         public Cliente() { }
-  
+
+        public Cliente(int id, string nome, string cpf, string email, DateTime datacad, List<Endereco> enderecos, List<Telefone> telefones, bool ativo)
+        {
+            Id = id;
+            Nome = nome;
+            Cpf = cpf;
+            Email = email;
+            Datacad = datacad;
+            Enderecos  = enderecos;
+            Telefones = telefones;
+            Ativo = ativo;
+        }
+
+        public Cliente(string nome, string cpf, string email, DateTime datacad, List<Endereco> enderecos, List<Telefone> telefones)
+        {
+            Nome = nome;
+            Cpf = cpf;
+            Email = email;
+            Datacad = datacad;
+            Enderecos = enderecos;
+            Telefones = telefones;
+        }
+
         public Cliente(int id, string nome, string cpf, string email, DateTime datacad, bool ativo)
         {
             Id = id;

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TintSysClass
 {
-    internal class Telefone
+    public class Telefone
     {
+
     }
 }
