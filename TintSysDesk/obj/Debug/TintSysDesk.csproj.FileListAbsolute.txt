@@ -63,10 +63,11 @@ C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\bin\Debug\
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\bin\Debug\System.Buffers.xml
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.csproj.AssemblyReference.cache
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.csproj.SuggestedBindingRedirects.cache
-C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.Form1.resources
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.Properties.Resources.resources
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.csproj.GenerateResource.cache
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.csproj.CoreCompileInputs.cache
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.csproj.CopyComplete
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.exe
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.pdb
+C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.FrmPrincipal.resources
+C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.FrmUsuarios.resources
