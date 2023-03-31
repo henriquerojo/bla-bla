@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
@@ -96,8 +97,64 @@ namespace TintSysClass
             well.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
             well.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = Cpf;
             well.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
-            well.Parameters.Add("datacad");
+            well.Parameters.Add("datacad", MySqlDbType.DateTime).Value = datacad;
+            well.ExecuteNonQuery();
+
+            well.CommandText = "select @@identity";
+            Id = Convert.ToInt32(well.ExecuteScalar());
+
+            Banco.Fechar(well);
+        }
+       
+        public void Atualizar()
+        {
+            var vitu = Banco.Abrir();
+            vitu.CommandText = "update clientes set nome = @nome, cpf = @cpf, email = @email, datacad = default, ativo = 1 where id = @id";
+            vitu.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
+            vitu.Parameters.Add("@cpf", MySqlDbType.VarChar).Value= Cpf;
+            vitu.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
+            vitu.Parameters.Add("@datacad");
+            vitu.ExecuteNonQuery ();
+
+            vitu.CommandText = "select @@identity";
+            Id = Convert.ToInt32(vitu.ExecuteScalar());
+
+            Banco.Fechar(vitu);
         }
 
+        public void Excluir(int id)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "delete from clientes where id = " + id;
+            cmd.ExecuteNonQuery();
+            Banco.Fechar(cmd);
+        }
+
+        public static void Restaurar(int _id)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "update cliente set ativo = 1 where id = " + _id;
+            cmd.ExecuteNonQuery();
+            Banco.Fechar(cmd);
+        }
+
+        public static Cliente ObterPorId(int _id)
+        {
+            Cliente cliente = null;
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from clientes where id = " + _id;
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                cliente = new Cliente(
+                dr.GetInt32(0),
+                dr.GetString(1),
+                dr.GetString(2),
+                dr.GetString(3) 
+                );
+            }
+            Banco.Fechar(cmd);
+            return cliente;
+        }
     }
 }

@@ -154,10 +154,10 @@ namespace TintSysClass
             cmd.ExecuteNonQuery();
             Banco.Fechar(cmd);
         }
-        public void Excluir(int _id)
+        public void Excluir(int id)
         {
             var cmd = Banco.Abrir();
-            cmd.CommandText = "delete from usuarios where id = " + _id;
+            cmd.CommandText = "delete from usuarios where id = " + id;
             cmd.ExecuteNonQuery();
             Banco.Fechar(cmd);
         }

@@ -53,14 +53,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvNiveis = new System.Windows.Forms.DataGridView();
             this.clnIDNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnNomeNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnSiglaNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clnDeleteNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNiveis)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -135,7 +135,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(410, 117);
+            this.comboBox1.Location = new System.Drawing.Point(410, 118);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(73, 21);
             this.comboBox1.TabIndex = 8;
@@ -253,6 +253,7 @@
             this.btnConsultarNivel.Text = "Consultar";
             this.btnConsultarNivel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConsultarNivel.UseVisualStyleBackColor = true;
+            this.btnConsultarNivel.Click += new System.EventHandler(this.btnConsultarNivel_Click);
             // 
             // btnEditarNivel
             // 
@@ -270,6 +271,7 @@
             this.btnEditarNivel.Text = "Editar";
             this.btnEditarNivel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditarNivel.UseVisualStyleBackColor = true;
+            this.btnEditarNivel.Click += new System.EventHandler(this.btnEditarNivel_Click);
             // 
             // txtIdNivel
             // 
@@ -321,20 +323,20 @@
             this.label8.Text = "Sigla";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // dataGridView2
+            // dgvNiveis
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvNiveis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNiveis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clnIDNivel,
             this.clnNomeNivel,
             this.clnSiglaNivel,
             this.clnDeleteNivel});
-            this.dataGridView2.Location = new System.Drawing.Point(542, 261);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(362, 150);
-            this.dataGridView2.TabIndex = 16;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dgvNiveis.Location = new System.Drawing.Point(542, 261);
+            this.dgvNiveis.Name = "dgvNiveis";
+            this.dgvNiveis.RowHeadersVisible = false;
+            this.dgvNiveis.Size = new System.Drawing.Size(362, 150);
+            this.dgvNiveis.TabIndex = 16;
+            this.dgvNiveis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // clnIDNivel
             // 
@@ -365,7 +367,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1343, 558);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvNiveis);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
@@ -388,7 +390,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNiveis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,7 +423,7 @@
         private System.Windows.Forms.Button btnEditarNivel;
         private System.Windows.Forms.Button btnConsultarNivel;
         private System.Windows.Forms.Button btnInserirNivel;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvNiveis;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnIDNivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnNomeNivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnSiglaNivel;
