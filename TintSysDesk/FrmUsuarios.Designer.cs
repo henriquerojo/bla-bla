@@ -42,12 +42,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnInserirNivel = new System.Windows.Forms.Button();
+            this.btnConsultarNivel = new System.Windows.Forms.Button();
+            this.btnEditarNivel = new System.Windows.Forms.Button();
+            this.txtIdNivel = new System.Windows.Forms.TextBox();
+            this.txtNomeNivel = new System.Windows.Forms.TextBox();
+            this.txtSigla = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.clnIDNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnNomeNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnSiglaNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDeleteNivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(164, 102);
+            this.label1.Location = new System.Drawing.Point(214, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 0;
@@ -56,7 +75,7 @@
             // 
             // btnInserir
             // 
-            this.btnInserir.Location = new System.Drawing.Point(125, 276);
+            this.btnInserir.Location = new System.Drawing.Point(175, 219);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(75, 23);
             this.btnInserir.TabIndex = 1;
@@ -65,7 +84,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(251, 275);
+            this.button2.Location = new System.Drawing.Point(301, 218);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -74,7 +93,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(389, 274);
+            this.button3.Location = new System.Drawing.Point(439, 217);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
@@ -83,7 +102,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(205, 98);
+            this.txtID.Location = new System.Drawing.Point(255, 41);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(82, 20);
             this.txtID.TabIndex = 4;
@@ -91,7 +110,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(205, 124);
+            this.txtNome.Location = new System.Drawing.Point(255, 67);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(228, 20);
             this.txtNome.TabIndex = 5;
@@ -99,7 +118,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(205, 150);
+            this.txtEmail.Location = new System.Drawing.Point(255, 93);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(228, 20);
             this.txtEmail.TabIndex = 6;
@@ -107,7 +126,7 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(205, 176);
+            this.txtSenha.Location = new System.Drawing.Point(255, 119);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(82, 20);
             this.txtSenha.TabIndex = 7;
@@ -116,7 +135,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(360, 174);
+            this.comboBox1.Location = new System.Drawing.Point(410, 117);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(73, 21);
             this.comboBox1.TabIndex = 8;
@@ -125,7 +144,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(389, 98);
+            this.checkBox1.Location = new System.Drawing.Point(439, 41);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(50, 17);
             this.checkBox1.TabIndex = 9;
@@ -136,7 +155,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 131);
+            this.label2.Location = new System.Drawing.Point(214, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 10;
@@ -146,7 +165,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(164, 157);
+            this.label3.Location = new System.Drawing.Point(214, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 11;
@@ -156,7 +175,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(164, 182);
+            this.label4.Location = new System.Drawing.Point(214, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 12;
@@ -166,18 +185,189 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(321, 183);
+            this.label5.Location = new System.Drawing.Point(371, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Nível";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(163, 261);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(367, 270);
+            this.dataGridView1.TabIndex = 14;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtSigla);
+            this.groupBox1.Controls.Add(this.txtNomeNivel);
+            this.groupBox1.Controls.Add(this.txtIdNivel);
+            this.groupBox1.Controls.Add(this.btnEditarNivel);
+            this.groupBox1.Controls.Add(this.btnConsultarNivel);
+            this.groupBox1.Controls.Add(this.btnInserirNivel);
+            this.groupBox1.Location = new System.Drawing.Point(542, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(427, 215);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Níveis";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnInserirNivel
+            // 
+            this.btnInserirNivel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnInserirNivel.FlatAppearance.BorderSize = 0;
+            this.btnInserirNivel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.btnInserirNivel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnInserirNivel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserirNivel.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnInserirNivel.Image = global::TintSysDesk.Properties.Resources.Add;
+            this.btnInserirNivel.Location = new System.Drawing.Point(22, 166);
+            this.btnInserirNivel.Name = "btnInserirNivel";
+            this.btnInserirNivel.Size = new System.Drawing.Size(93, 43);
+            this.btnInserirNivel.TabIndex = 0;
+            this.btnInserirNivel.Text = "Inserir";
+            this.btnInserirNivel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInserirNivel.UseVisualStyleBackColor = true;
+            this.btnInserirNivel.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnConsultarNivel
+            // 
+            this.btnConsultarNivel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConsultarNivel.FlatAppearance.BorderSize = 0;
+            this.btnConsultarNivel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.btnConsultarNivel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnConsultarNivel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarNivel.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnConsultarNivel.Image = global::TintSysDesk.Properties.Resources.Search;
+            this.btnConsultarNivel.Location = new System.Drawing.Point(165, 166);
+            this.btnConsultarNivel.Name = "btnConsultarNivel";
+            this.btnConsultarNivel.Size = new System.Drawing.Size(93, 43);
+            this.btnConsultarNivel.TabIndex = 1;
+            this.btnConsultarNivel.Text = "Consultar";
+            this.btnConsultarNivel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConsultarNivel.UseVisualStyleBackColor = true;
+            // 
+            // btnEditarNivel
+            // 
+            this.btnEditarNivel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnEditarNivel.FlatAppearance.BorderSize = 0;
+            this.btnEditarNivel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.btnEditarNivel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnEditarNivel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarNivel.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnEditarNivel.Image = global::TintSysDesk.Properties.Resources.Edit;
+            this.btnEditarNivel.Location = new System.Drawing.Point(303, 166);
+            this.btnEditarNivel.Name = "btnEditarNivel";
+            this.btnEditarNivel.Size = new System.Drawing.Size(90, 43);
+            this.btnEditarNivel.TabIndex = 2;
+            this.btnEditarNivel.Text = "Editar";
+            this.btnEditarNivel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditarNivel.UseVisualStyleBackColor = true;
+            // 
+            // txtIdNivel
+            // 
+            this.txtIdNivel.Location = new System.Drawing.Point(67, 49);
+            this.txtIdNivel.Name = "txtIdNivel";
+            this.txtIdNivel.Size = new System.Drawing.Size(63, 20);
+            this.txtIdNivel.TabIndex = 3;
+            this.txtIdNivel.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // txtNomeNivel
+            // 
+            this.txtNomeNivel.Location = new System.Drawing.Point(67, 76);
+            this.txtNomeNivel.Name = "txtNomeNivel";
+            this.txtNomeNivel.Size = new System.Drawing.Size(173, 20);
+            this.txtNomeNivel.TabIndex = 4;
+            // 
+            // txtSigla
+            // 
+            this.txtSigla.Location = new System.Drawing.Point(67, 102);
+            this.txtSigla.Name = "txtSigla";
+            this.txtSigla.Size = new System.Drawing.Size(63, 20);
+            this.txtSigla.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(18, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "ID";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Nome";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 109);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Sigla";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnIDNivel,
+            this.clnNomeNivel,
+            this.clnSiglaNivel,
+            this.clnDeleteNivel});
+            this.dataGridView2.Location = new System.Drawing.Point(542, 261);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.Size = new System.Drawing.Size(362, 150);
+            this.dataGridView2.TabIndex = 16;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // clnIDNivel
+            // 
+            this.clnIDNivel.HeaderText = "ID";
+            this.clnIDNivel.Name = "clnIDNivel";
+            this.clnIDNivel.ReadOnly = true;
+            this.clnIDNivel.Width = 80;
+            // 
+            // clnNomeNivel
+            // 
+            this.clnNomeNivel.HeaderText = "Nome";
+            this.clnNomeNivel.Name = "clnNomeNivel";
+            // 
+            // clnSiglaNivel
+            // 
+            this.clnSiglaNivel.HeaderText = "Sigla";
+            this.clnSiglaNivel.Name = "clnSiglaNivel";
+            // 
+            // clnDeleteNivel
+            // 
+            this.clnDeleteNivel.HeaderText = "Ação";
+            this.clnDeleteNivel.Name = "clnDeleteNivel";
+            this.clnDeleteNivel.ReadOnly = true;
+            this.clnDeleteNivel.Width = 79;
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1343, 558);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -195,6 +385,10 @@
             this.Name = "FrmUsuarios";
             this.Text = "Administração de Usuários";
             this.Load += new System.EventHandler(this.FrmUsuarios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +410,21 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSigla;
+        private System.Windows.Forms.TextBox txtNomeNivel;
+        private System.Windows.Forms.TextBox txtIdNivel;
+        private System.Windows.Forms.Button btnEditarNivel;
+        private System.Windows.Forms.Button btnConsultarNivel;
+        private System.Windows.Forms.Button btnInserirNivel;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnIDNivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnNomeNivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnSiglaNivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnDeleteNivel;
     }
 }
