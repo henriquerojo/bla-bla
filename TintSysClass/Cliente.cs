@@ -88,12 +88,19 @@ namespace TintSysClass
             Datacad = datacad;
         }
 
+        public Cliente(string nome, string cpf, string email)
+        { 
+            Nome = nome;
+            Cpf = cpf; 
+            Email = email;
+        }
+
         // Métodos da Classe
 
         public void Inserir()
         {
             var well = Banco.Abrir();
-            well.CommandText = "insert clientes (nome, cpf, email, datacad, ativo) values (@nome, @cpf, @email, default, 1)";
+            well.CommandText = "insert clientes (nome, cpf, email, datacad, ativo) values (@nome, @cpf, @email, default, default)";
             well.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
             well.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = Cpf;
             well.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
@@ -150,7 +157,11 @@ namespace TintSysClass
                 dr.GetInt32(0),
                 dr.GetString(1),
                 dr.GetString(2),
-                dr.GetString(3) 
+                dr.GetString(3),
+                dr.GetDateTime(4),
+                dr.GetBoolean(5)
+                //Endereco.ListarPorCliente
+                //Telefone.ListarPorCliente
                 );
             }
             Banco.Fechar(cmd);

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,15 +14,15 @@ namespace TintSysDesk
 {
     public partial class FrmUsuarios : Form
     {
-        private void CarregaGridNiveis()
+        private void CarregaGrid()
         {
-            List<Nivel> lista = Usuario.Listar();
+            List<Usuario> lista = Usuario.Listar();
             int linha = 0;
             dgvUsuarios.Rows.Clear();
             foreach (Usuario iten in lista)
             {
                 dgvUsuarios.Rows.Add();
-                dgvUsuarios.Rows[linha].Cells[0].Value = iten.Id.ToString;
+                dgvUsuarios.Rows[linha].Cells[0].Value = iten.Id.ToString();
                 dgvUsuarios.Rows[linha].Cells[1].Value = iten.Nome;
                 dgvUsuarios.Rows[linha].Cells[2].Value = iten.Email;
                 dgvUsuarios.Rows[linha].Cells[3].Value = iten.Nivel.Nome;
@@ -149,5 +150,43 @@ namespace TintSysDesk
             CarregaGridNiveis();
             CarregaGrid();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CarregaGridNiveis()
+        {
+            List<Nivel> lista = Nivel.Listar();
+            int linha = 0;
+            foreach (Nivel iten in lista)
+            {
+                dgvNiveis.Rows.Add();
+                dgvNiveis.Rows[linha].Cells[0].Value = iten.Id.ToString();
+                dgvNiveis.Rows[linha].Cells[1].Value = iten.Nome;
+                dgvNiveis.Rows[linha].Cells[2].Value = iten.Sigla;
+
+                linha++;
+            }
+        }
+
+        private void CarregaComboNivel()
+        {
+            comboBox1.DataSource = Nivel.Listar();
+            comboBox1.ValueMember= "Id";
+            comboBox1.DisplayMember= "Nome";
+        }
     }
+
 }
