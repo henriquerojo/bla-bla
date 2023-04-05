@@ -72,3 +72,4 @@ C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.FrmPrincipal.resources
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.FrmUsuarios.resources
 C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.frmCliente.resources
+C:\Users\henrique.drojo\Source\Repos\henriquerojo\bla-bla\TintSysDesk\obj\Debug\TintSysDesk.frmProduto.resources
