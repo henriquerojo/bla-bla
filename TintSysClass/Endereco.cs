@@ -25,5 +25,12 @@ namespace TintSysClass
         //Métodos Construtores
 
         //Métodos da Classe
+
+        public void Atualizar()
+        {
+            var cmd = Banco.Abrir();
+            Banco.Fechar(cmd);
+        }
+        
     }
 }
