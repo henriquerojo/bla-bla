@@ -76,27 +76,83 @@ namespace TintSysClass
         public List<Produto> Listar(string descricao = "") 
         {
             List<Produto> lista = new List<Produto>();
+            MySqlCommand cmd = Banco.Abrir();
+            if (descricao.Length > 0)
+            {
+                cmd.CommandText = "select * from produtos where descricao like '%" + descricao + "%'";
+            }
+            else 
+            {
+                cmd.CommandText = "select * from produtos";
+            }
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lista.Add(new Produto(
+                    dr.GetInt32[0],
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetDouble(4),
+                    dr.GetDouble(5),
+                    dr.GetBoolean(6)
+                    );
+            }
+            Banco.Fechar(cmd);
             //busca
-            return new List<Produto>();
+            return lista;
         }
 
         public static Produto ObterPoriD(int id)
         {
-            Produto produto = new Produto();
+            Produto produto = null;
+            MySqlCommand cmd = Banco.Abrir();
+            cmd.CommandText = "select * from produtos where id = " + id;
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                produto new Produto(
+                    dr.GetInt32[0],
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetDouble(4),
+                    dr.GetDouble(5),
+                    dr.GetBoolean(6)
+                    );
+            }
+            Banco.Fechar(cmd);
             // busca
             return produto;
         }
         public void Atualizar()
         {
-            
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "update produtos set descricao = @descricao, unidade = @unidade, codbar = @codbar, preco = @preco, desconto = @desconto where id = @id;
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Id;
+            cmd.Parameters.Add("@descricao", MySqlDbType.VarChar).Value = Descricao;
+            cmd.Parameters.Add("@unidade", MySqlDbType.VarChar).Value = Unidade;
+            cmd.Parameters.Add("@codbar", MySqlDbType.VarChar).Value = CodBar;
+            cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = Preco;
+            cmd.Parameters.Add("@desconto", MySqlDbType.Decimal).Value = Desconto;
+            cmd.ExecuteNonQuery();
+            Banco.Fechar(cmd);
         }
         public void Arquivar()
         {
-
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "update produtos set descontinuado = 1 where id = @id;
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Id;
+            cmd.ExecuteNonQuery();
+            Banco.Fechar(cmd);
         }
         public void Restaurar()
         {
-
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "update produtos set descontinuado = 0 where id = @id;
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Id;
+            cmd.ExecuteNonQuery();
+            Banco.Fechar(cmd);
         }
     }
 }
