@@ -86,11 +86,27 @@ namespace TintSysDesk
                 txtId.ReadOnly= true;
                 btnBuscar.Text = "...";
                 var produto = Produto.ObterPorId(int.Parse(txtId.Text));
-                txtDescricao.Text = produto.Descricao;
-                txtDesconto.Text = produto.Desconto.ToString("#,##%");
-                txtPreco.Text = produto.Preco.ToString("R$ ##.00");
-                //cmbUnidade.SelectedIndex = 0;
+                if (produto.Id > 0)
+                {
+                    txtDescricao.Text = produto.Descricao;
+                    txtDesconto.Text = produto.Desconto.ToString("#,##%");
+                    txtPreco.Text = produto.Preco.ToString("R$ ##.00");
+                    txtCodBar.Text = produto.CodBar;
+                    cmbUnidade.Text = produto.Unidade;
+                    btnEditar.Enabled = true;
+                }
+                
             }
+        }
+
+        private void frmProduto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
