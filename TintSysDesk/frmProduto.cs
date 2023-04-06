@@ -20,7 +20,15 @@ namespace TintSysDesk
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkDescontinuado.Checked)
+            {
+                Produto.Restaurar(int.Parse(txtId.Text));
+            }
+            else
+            {
+                Produto.Arquivar(int.Parse(txtId.Text));
+            }
+            CarregaGrid();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -139,6 +147,10 @@ namespace TintSysDesk
             if (txtPesquisar.Text.Length > 1)
             {
                 CarregaGrid(txtPesquisar.Text);
+            }
+            else if (txtPesquisar.Text.Length < 2)
+            {
+                CarregaGrid();
             }
         }
     }

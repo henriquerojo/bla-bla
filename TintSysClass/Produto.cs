@@ -111,7 +111,7 @@ namespace TintSysClass
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                produto new Produto(
+              produto new Produto(
                     dr.GetInt32(0),
                     dr.GetString(1),
                     dr.GetString(2),
@@ -125,7 +125,7 @@ namespace TintSysClass
             // busca
             return produto;
         }
-        public void Atualizar()
+        public void Atualizar(int id)
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "update produtos set descricao = @descricao, unidade = @unidade, codbar = @codbar, preco = @preco, desconto = @desconto, descontinuado = @descontinuado where id = @id;";
@@ -139,19 +139,19 @@ namespace TintSysClass
             cmd.ExecuteNonQuery();
             Banco.Fechar(cmd);
         }
-        public void Arquivar()
+        public static void Arquivar(int id)
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "update produtos set descontinuado = 1 where id = @id;";
-            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Id;
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             cmd.ExecuteNonQuery();
             Banco.Fechar(cmd);
         }
-        public void Restaurar()
+        public static void Restaurar(int id)
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "update produtos set descontinuado = 0 where id = @id;";
-            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = Id;
+            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             cmd.ExecuteNonQuery();
             Banco.Fechar(cmd);
         }
