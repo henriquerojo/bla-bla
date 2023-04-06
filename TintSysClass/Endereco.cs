@@ -10,16 +10,16 @@ namespace TintSysClass
     public class Endereco
     {
         //Atributos
-        private int id;
-        private string cep;
-        private string logradouro;
-        private string numero;
-        private string complemento;
-        private string bairro;
-        private string cidade;
-        private string estado;
-        private string uf;
-        private string tipo;
+        //private int id;
+        //private string cep;
+        //private string logradouro;
+        //private string numero;
+        //private string complemento;
+        //private string bairro;
+        //private string cidade;
+        //private string estado;
+        //private string uf;
+        //private string tipo;
         //Propriedades
 
         //Métodos Construtores

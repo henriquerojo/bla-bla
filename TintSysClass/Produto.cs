@@ -125,7 +125,7 @@ namespace TintSysClass
             // busca
             return produto;
         }
-        public void Atualizar(int id)
+        public void Atualizar()
         {
             var cmd = Banco.Abrir();
             cmd.CommandText = "update produtos set descricao = @descricao, unidade = @unidade, codbar = @codbar, preco = @preco, desconto = @desconto, descontinuado = @descontinuado where id = @id;";

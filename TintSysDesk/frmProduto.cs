@@ -153,5 +153,26 @@ namespace TintSysDesk
                 CarregaGrid();
             }
         }
+
+        private void dgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            DataGridView dgv = (DataGridView)sender;
+            //
+            if (e.ColumnIndex == 6)
+            {
+                 bool x =  Convert.ToBoolean(dgvLista.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                 int id = Convert.ToInt32(dgvLista.Rows[e.RowIndex].Cells[0].Value);
+                if (x == true)
+                { 
+                    Produto.Restaurar(id);
+                }
+                else
+                {
+                    Produto.Arquivar(id);
+                }
+                CarregaGrid();
+            }
+        }
     }
 }
