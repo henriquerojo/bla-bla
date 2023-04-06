@@ -62,7 +62,7 @@ namespace TintSysClass
         public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandText = "insert produtos (descricao, unidade, codbar, preco, desconto, descontinuado) values (@descricao, @unidade, @codbar, @preco, @desconto, 0);"
+            cmd.CommandText = "insert produtos (descricao, unidade, codbar, preco, desconto, descontinuado) values (@descricao, @unidade, @codbar, @preco, @desconto, 0);";
             cmd.Parameters.Add("@descricao", MySqlDbType.VarChar).Value = Descricao;
             cmd.Parameters.Add("@unidade", MySqlDbType.VarChar).Value = Unidade;
             cmd.Parameters.Add("@codbar", MySqlDbType.VarChar).Value = CodBar;
@@ -107,11 +107,11 @@ namespace TintSysClass
         {
             Produto produto = null;
             MySqlCommand cmd = Banco.Abrir();
-            cmd.CommandText = "select * from produtos where id;";
+            cmd.CommandText = "select * from produtos where id = "+ id;
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-              produto new Produto(
+              produto = new Produto(
                     dr.GetInt32(0),
                     dr.GetString(1),
                     dr.GetString(2),
