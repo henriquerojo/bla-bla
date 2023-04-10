@@ -74,6 +74,7 @@ namespace TintSysClass
             cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = Estado;
             cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = Uf;
             cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
+
             cmd.ExecuteNonQuery();
 
             cmd.CommandText = "select @@identity";
@@ -84,7 +85,22 @@ namespace TintSysClass
         public void Atualizar()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandText = "";
+            cmd.CommandText = "update enderecos set cep = @cep, logradouro = @logradouro, numero = @numero, complemento = @complemento, bairro = @bairro, cidade = @cidade, estado = @estado, uf = @uf, tipo = @tipo";
+            cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = Cep;
+            cmd.Parameters.Add("@logradouro", MySqlDbType.VarChar).Value = Logradouro;
+            cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;
+            cmd.Parameters.Add("@complemento", MySqlDbType.VarChar).Value = Complemento;
+            cmd.Parameters.Add("@bairro", MySqlDbType.VarChar).Value = Bairro;
+            cmd.Parameters.Add("@cidade", MySqlDbType.VarChar).Value = Cidade;
+            cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = Estado;
+            cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = Uf;
+            cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
+
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "select @@identity";
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+
             Banco.Fechar(cmd);
         }
         public void ObterPorId()

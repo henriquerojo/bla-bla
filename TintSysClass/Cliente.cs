@@ -120,7 +120,7 @@ namespace TintSysClass
             vitu.Parameters.Add("@nome", MySqlDbType.VarChar).Value = Nome;
             vitu.Parameters.Add("@cpf", MySqlDbType.VarChar).Value= Cpf;
             vitu.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
-            vitu.Parameters.Add("@datacad");
+            vitu.Parameters.Add("@datacad", MySqlDbType.Timestamp).Value = Datacad;
             vitu.ExecuteNonQuery ();
 
             vitu.CommandText = "select @@identity";
