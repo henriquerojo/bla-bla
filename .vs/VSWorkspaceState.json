@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TintSysClass",
     "\\TintSysDesk"
   ],
-  "SelectedNode": "\\TintSysDesk\\frmCliente.cs",
+  "SelectedNode": "\\TintSysDesk\\frmProduto.cs",
   "PreviewInSolutionExplorer": false
 }
