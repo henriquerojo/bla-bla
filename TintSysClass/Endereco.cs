@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace TintSysClass
 {
@@ -33,15 +34,16 @@ namespace TintSysClass
         public string Tipo { get => tipo; set => tipo = value; }
         //Métodos Construtores
         public Endereco() { }
-        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo) 
-        { 
+        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo)
+        {
             Id = id;
             Cep = cep;
             Logradouro = logradouro;
             Numero = numero;
             Complemento = complemento;
-            Estado = bairro;
+            Bairro = bairro;
             Cidade = cidade;
+            Estado = estado;
             Uf = uf;
             Tipo = tipo;
         }
@@ -59,11 +61,37 @@ namespace TintSysClass
         }
 
         //Métodos da Classe
+        public void Inserir()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "insert enderecos (cep, logradouro, numero, complemento, bairro, cidade, estado, uf, tipo)";
+            cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = Cep;
+            cmd.Parameters.Add("@logradouro", MySqlDbType.VarChar).Value = Logradouro;
+            cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;
+            cmd.Parameters.Add("@complemento", MySqlDbType.VarChar).Value = Complemento;
+            cmd.Parameters.Add("@bairro", MySqlDbType.VarChar).Value = Bairro;
+            cmd.Parameters.Add("@cidade", MySqlDbType.VarChar).Value = Cidade;
+            cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = Estado;
+            cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = Uf;
+            cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "select @@identity";
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            Banco.Fechar(cmd);
+        }
         public void Atualizar()
         {
             var cmd = Banco.Abrir();
+            cmd.CommandText = "";
             Banco.Fechar(cmd);
         }
-        
+        public void ObterPorId()
+        {
+            var morrice = Banco.Abrir();
+            morrice.CommandText = "";
+            Banco.Fechar(morrice);
+        }
     }
 }
