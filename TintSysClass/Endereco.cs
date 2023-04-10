@@ -103,7 +103,7 @@ namespace TintSysClass
 
             Banco.Fechar(cmd);
         }
-        public void ObterPorId()
+        public static List<Endereco> ObterPorId(int client_id)
         {
             var morrice = Banco.Abrir();
             morrice.CommandText = "";
