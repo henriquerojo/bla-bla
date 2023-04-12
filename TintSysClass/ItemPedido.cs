@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace TintSysClass
 {
@@ -36,6 +37,14 @@ namespace TintSysClass
             Desconto = desconto;
         }
 
-
+        public void Adicionar()
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "insert itempedido (pedido_id, produto_id, preco, quantidade, desconto)" +
+            "values (@pedido_id, @produto_id, @preco, @quantidade, @desconto)";
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@pedido_id", MySqlDbType.Int32).Value = Id;
+            cmd.Parameters.Add("@produto_id", MySqlDbType.Int32).Value = Produto.Id;
+        }
     }
 }
