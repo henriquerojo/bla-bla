@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TintSysClass;
 
 namespace TintSysDesk
 {
@@ -19,7 +20,12 @@ namespace TintSysDesk
 
         private void fmPrincipal_Load(object sender, EventArgs e)
         {
-
+            Cliente cliente = Cliente.ObterPorId(1);
+            Usuario usuario = Usuario.ObterPorId(1);
+            Pedido pedido = new Pedido(cliente, usuario);
+            pedido.Inserir();
+            
+            MessageBox.Show(pedido.Hashcode);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
