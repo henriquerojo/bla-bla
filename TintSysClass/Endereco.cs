@@ -21,6 +21,7 @@ namespace TintSysClass
         private string estado;
         private string uf;
         private string tipo;
+        private int cliente_id;
         //Propriedades
         public int Id { get => id; set => id = value; }
         public string Cep { get => cep; set => cep = value; }
@@ -32,9 +33,10 @@ namespace TintSysClass
         public string Estado { get => estado; set => estado = value; }
         public string Uf { get => uf; set => uf = value; }
         public string Tipo { get => tipo; set => tipo = value; }
+        public int Clienteid { get => cliente_id;set => cliente_id = value; }
         //Métodos Construtores
         public Endereco() { }
-        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo)
+        public Endereco(int id, string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, int cliente_id)
         {
             Id = id;
             Cep = cep;
@@ -46,6 +48,21 @@ namespace TintSysClass
             Estado = estado;
             Uf = uf;
             Tipo = tipo;
+            Clienteid = cliente_id;
+        }
+
+        public Endereco(string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo, int cliente_id)
+        {
+            Cep = cep;
+            Logradouro = logradouro;
+            Numero = numero;
+            Complemento = complemento;
+            Bairro = bairro;
+            Cidade = cidade;
+            Estado = estado;
+            Uf = uf;
+            Tipo = tipo;
+            Clienteid = cliente_id;
         }
         public Endereco(string cep, string logradouro, string numero, string complemento, string bairro, string cidade, string estado, string uf, string tipo)
         {
@@ -64,7 +81,7 @@ namespace TintSysClass
         public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandText = "insert enderecos (cep, logradouro, numero, complemento, bairro, cidade, estado, uf, tipo)";
+            cmd.CommandText = "insert enderecos (cep, logradouro, numero, complemento, bairro, cidade, estado, uf, tipo, cliente_id)";
             cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = Cep;
             cmd.Parameters.Add("@logradouro", MySqlDbType.VarChar).Value = Logradouro;
             cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;
@@ -74,6 +91,7 @@ namespace TintSysClass
             cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = Estado;
             cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = Uf;
             cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
+            cmd.Parameters.Add("@clienteid", MySqlDbType.Int32).Value = Clienteid;
 
             cmd.ExecuteNonQuery();
 
@@ -85,7 +103,7 @@ namespace TintSysClass
         public void Atualizar()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandText = "update enderecos set cep = @cep, logradouro = @logradouro, numero = @numero, complemento = @complemento, bairro = @bairro, cidade = @cidade, estado = @estado, uf = @uf, tipo = @tipo";
+            cmd.CommandText = "update enderecos set cep = @cep, logradouro = @logradouro, numero = @numero, complemento = @complemento, bairro = @bairro, cidade = @cidade, estado = @estado, uf = @uf, tipo = @tipo, cliente_id = @cliente_id";
             cmd.Parameters.Add("@cep", MySqlDbType.VarChar).Value = Cep;
             cmd.Parameters.Add("@logradouro", MySqlDbType.VarChar).Value = Logradouro;
             cmd.Parameters.Add("@numero", MySqlDbType.VarChar).Value = Numero;
@@ -95,6 +113,7 @@ namespace TintSysClass
             cmd.Parameters.Add("@estado", MySqlDbType.VarChar).Value = Estado;
             cmd.Parameters.Add("@uf", MySqlDbType.VarChar).Value = Uf;
             cmd.Parameters.Add("@tipo", MySqlDbType.VarChar).Value = Tipo;
+            cmd.Parameters.Add("@clienteid", MySqlDbType.Int32).Value = Clienteid;
 
             cmd.ExecuteNonQuery();
 
