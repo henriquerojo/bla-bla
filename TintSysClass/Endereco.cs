@@ -122,11 +122,32 @@ namespace TintSysClass
 
             Banco.Fechar(cmd);
         }
-        public static List<Endereco> ObterPorId(int client_id)
+        public static List<Endereco> ObterPorId(int id)
         {
+            List<Endereco> enderecos = new List<Endereco>();
             var morrice = Banco.Abrir();
-            morrice.CommandText = "";
+            morrice.CommandText = "select * from enderecos where id = " + id;
+            morrice.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+            var dr = morrice.ExecuteReader();
+            Endereco endereco = null;
+            while (dr.Read())
+            {
+                endereco = new Endereco(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetString(4),
+                    dr.GetString(5),
+                    dr.GetString(6),
+                    dr.GetString(7),
+                    dr.GetString(8),
+                    dr.GetString(9),
+                    Cliente.ObterPorId(dr.GetInt32(10))
+                    );
+            }
             Banco.Fechar(morrice);
+            return enderecos;
         }
     }
 }
