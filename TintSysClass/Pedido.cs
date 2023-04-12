@@ -16,7 +16,7 @@ namespace TintSysClass
         private int id;
         private DateTime data;
         private string status;
-        private Decimal desconto;
+        private double desconto;
         private Cliente cliente;
         private Usuario usuario;
         private DateTime arquivado;
@@ -26,14 +26,15 @@ namespace TintSysClass
         public int Id { get => id; set => id = value; }
         public DateTime Data { get => data; set => data = value; }
         public string Status { get => status; set => status = value; }
-        public decimal Desconto { get => desconto; set => desconto = value; }
+        public double Desconto { get => desconto; set => desconto = value; }
         public Cliente Cliente { get => cliente; set => cliente = value; }
         public Usuario Usuario { get => usuario; set => usuario = value; }
         public DateTime Arquivado { get => arquivado; set => arquivado = value; }
         public string Hashcode { get => hashcode; set => hashcode = value; }
+        public List<ItemPedido> Itens { get; set; }
         // métodos construtores
         public Pedido() { }
-        public Pedido(int id, DateTime data, string status, decimal desconto, Cliente cliente, Usuario usuario, DateTime arquivado, string hashcode)
+        public Pedido(int id, DateTime data, string status, double desconto, Cliente cliente, Usuario usuario, DateTime arquivado, string hashcode)
         {
             Id = id;
             Data = data;
@@ -66,13 +67,50 @@ namespace TintSysClass
 
             Banco.Fechar(cmd);
         }
-        public void ObterPorId(int id)
+        public static Pedido ObterPorId(int id)
         {
-
+            Pedido pedido = null;
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from pedidos where id = " + id;
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                pedido = new Pedido(
+                    dr.GetInt32(0),
+                    dr.GetDateTime(1),
+                    dr.GetString(2),
+                    dr.GetDouble(3),
+                    Cliente.ObterPorId(dr.GetInt32(4)),
+                    Usuario.ObterPorId(dr.GetInt32(5)),
+                    dr.GetDateTime(6),
+                    dr.GetString(7)
+                    );
+            }
+            return pedido;
         }
-        public void ObterPorCliente()
-        { 
-
+        public static List<Pedido> ObterPorCliente(int id)
+        {
+            List<Pedido> pedidos = null;
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from pedidos where id = " + id;
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                pedidos.Add(
+                    new Pedido(
+                    dr.GetInt32(0),
+                    dr.GetDateTime(1),
+                    dr.GetString(2),
+                    dr.GetDouble(3),
+                    Cliente.ObterPorId(dr.GetInt32(4)),
+                    Usuario.ObterPorId(dr.GetInt32(5)),
+                    dr.GetDateTime(6),
+                    dr.GetString(7)
+                    )
+                 );
+            }
+            return pedidos;
+                
         }
         public void Listar()
         { 
