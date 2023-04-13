@@ -46,5 +46,22 @@ namespace TintSysClass
             cmd.Parameters.Add("@pedido_id", MySqlDbType.Int32).Value = Id;
             cmd.Parameters.Add("@produto_id", MySqlDbType.Int32).Value = Produto.Id;
         }
+        public static ItemPedido BuscarPorProdutoPedido(int pedido_id, int produto_id)
+        {
+            ItemPedido iten = new ItemPedido();
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from itempedido where pedido_id = " + pedido_id;
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                iten.Id = dr.GetInt32(0);
+                iten.Produto = Produto.ObterPorId(dr.GetInt32(2));
+                iten.Preco = dr.GetDouble(3);
+                iten.Quantidade = dr.GetDouble(4);
+                iten.Desconto = dr.GetDouble(5);
+            }
+            return iten;
+        }
+
     }
 }
