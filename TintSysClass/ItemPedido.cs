@@ -52,6 +52,8 @@ namespace TintSysClass
             var cmd = Banco.Abrir();
             cmd.CommandText = "select * from itempedido " +
                 "where pedido_id = @pedido and produto_id = @produto";
+            cmd.Parameters.Add("@pedido", MySqlDbType.Int32).Value = pedido_id;
+            cmd.Parameters.Add("@produto", MySqlDbType.Int32).Value = produto_id;
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -62,6 +64,27 @@ namespace TintSysClass
                 item.Desconto = dr.GetDouble(5);
             }
             return item;
+        }
+        public static List<ItemPedido> ListarPorPedido(int pedido_id)
+        {
+            ItemPedido item = null;
+            List<ItemPedido> itens = new List<ItemPedido>();
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from itempedido " +
+                "where pedido_id = @pedido";
+            cmd.Parameters.Add("@pedido", MySqlDbType.Int32).Value = pedido_id;
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                item = new ItemPedido();
+                item.Id = dr.GetInt32(0);
+                item.Produto = Produto.ObterPorId(dr.GetInt32(2));
+                item.Preco = dr.GetDouble(3);
+                item.Quantidade = dr.GetDouble(4);
+                item.Desconto = dr.GetDouble(5);
+                itens.Add(item);
+            }
+            return itens;
         }
 
     }
