@@ -44,6 +44,7 @@ namespace TintSysClass
             Usuario = usuario;
             Arquivado = arquivado;
             Hashcode = hashcode;
+            Itens = ItemPedido.ListarPorPedido(id); 
         }
         public Pedido(Cliente cliente, Usuario usuario)
         {
@@ -98,27 +99,87 @@ namespace TintSysClass
             {
                 pedidos.Add(
                     new Pedido(
-                    dr.GetInt32(0),
-                    dr.GetDateTime(1),
-                    dr.GetString(2),
-                    dr.GetDouble(3),
-                    Cliente.ObterPorId(dr.GetInt32(4)),
-                    Usuario.ObterPorId(dr.GetInt32(5)),
-                    dr.GetDateTime(6),
-                    dr.GetString(7)
-                    )
+                        dr.GetInt32(0),
+                        dr.GetDateTime(1),
+                        dr.GetString(2),
+                        dr.GetDouble(3),
+                        Cliente.ObterPorId(dr.GetInt32(4)),
+                        Usuario.ObterPorId(dr.GetInt32(5)),
+                        dr.GetDateTime(6),
+                        dr.GetString(7)
+                        )
                  );
             }
             return pedidos;
                 
         }
-        public void Listar()
-        { 
-        
+        public static List<Pedido> Listar()
+        {
+            List<Pedido> pedidos = null;
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "select * from pedidos";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                pedidos.Add(
+                    new Pedido(
+                        dr.GetInt32(0),
+                        dr.GetDateTime(1),
+                        dr.GetString(2),
+                        dr.GetDouble(3),
+                        Cliente.ObterPorId(dr.GetInt32(4)),
+                        Usuario.ObterPorId(dr.GetInt32(5)),
+                        dr.GetDateTime(6),
+                        dr.GetString(7)
+                        )
+                 );
+            }
+            return pedidos;
+        }
+        public static bool Fechar(int id)
+        {
+            bool teste = false;
+            MySqlCommand cmd = null;
+            try
+            {
+                cmd = Banco.Abrir();
+                cmd.CommandText = "update pedidos set status = 'F' where id = " + id;
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    teste = true;
+                }
+                //else
+                //{
+                //    teste = false;
+                //}
+            }
+            catch (Exception)
+            {
+                // Mostra o erro
+            }
+            finally
+            {
+                Banco.Fechar(cmd);
+            }
+            return teste;  
+            
         }
         public void Atualizar()
         {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "update pedidos set desconto = @desconto where id = " + Id;
+            cmd.Parameters.Add("@desconto", MySqlDbType.Decimal).Value = Desconto;
 
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = "select @@identity";
+
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            Banco.Fechar(cmd);
+        }
+        public void Cancelar()
+        { 
+        
         }
         public void Arquivar()
         {
