@@ -86,6 +86,30 @@ namespace TintSysClass
             }
             return itens;
         }
+        public void Alterar(int pedido_id)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "update itempedido set (quantidade = @quantidade, " +
+            "desconto = @desconto)" +
+            "values (@quantidade, @desconto)" +
+            "where pedido_id = @pedido and produto_id = @produto_id";
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@pedido_id", MySqlDbType.Int32).Value = pedido_id;
+            cmd.Parameters.Add("@produto_id", MySqlDbType.Int32).Value = Produto.Id;
+            cmd.Parameters.Add("@quantidade", MySqlDbType.Decimal).Value = Quantidade;
+            cmd.Parameters.Add("@desconto", MySqlDbType.Decimal).Value = Desconto;
+            cmd.ExecuteNonQuery();
+        }
+        public void Excluir(int pedido_id, int produto_id)
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "delete itempedido where " +
+            "pedido_id = @pedido_id and produto_id = @produto_id";                                                                                                                                                                                                                                                                                                                                                            
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@pedido_id", MySqlDbType.Int32).Value = pedido_id;
+            cmd.Parameters.Add("@produto_id", MySqlDbType.Int32).Value = produto_id;
+            cmd.ExecuteNonQuery();
+        }
 
     }
 }
