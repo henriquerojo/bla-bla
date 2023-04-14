@@ -12,6 +12,7 @@ namespace TintSysClass
         private int id;
         private string tipo;
         private string tel;
+        private string cliente_id;
         //propriedades
 
         //métodos construtores
