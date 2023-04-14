@@ -178,20 +178,24 @@ namespace TintSysClass
             Banco.Fechar(cmd);
         }
         public void Cancelar()
-        { 
-        
+        {
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "";
         }
         public void Arquivar()
         {
-
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "";
         }
         public void Restaurar()
         {
-
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "";
         }
         public void Excluir()
         {
-
+            var cmd = Banco.Abrir();
+            cmd.CommandText = "";
         }
         private string ObterHashCode(int cli, int user)
         {
