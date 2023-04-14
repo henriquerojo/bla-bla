@@ -28,9 +28,9 @@ namespace TintSysClass
             Desconto = desconto;
         }
 
-        public ItemPedido(int id, Produto produto, double preco, double quantidade, double desconto)
+        public ItemPedido(int pedido_id, Produto produto, double preco, double quantidade, double desconto)
         {
-            Id = id;
+            Id = pedido_id;
             Produto = produto;
             Preco = preco;
             Quantidade = quantidade;
@@ -45,6 +45,11 @@ namespace TintSysClass
             cmd.Parameters.Clear();
             cmd.Parameters.Add("@pedido_id", MySqlDbType.Int32).Value = Id;
             cmd.Parameters.Add("@produto_id", MySqlDbType.Int32).Value = Produto.Id;
+            cmd.Parameters.Add("@preco", MySqlDbType.Decimal).Value = Produto.Preco;
+            cmd.Parameters.Add("@quantidade", MySqlDbType.Decimal).Value = Quantidade;
+            cmd.Parameters.Add("@desconto", MySqlDbType.Decimal).Value = Desconto;
+            cmd.ExecuteNonQuery();
+            Banco.Fechar(cmd);
         }
         public static ItemPedido BuscarPorProdutoPedido(int pedido_id, int produto_id)
         {
