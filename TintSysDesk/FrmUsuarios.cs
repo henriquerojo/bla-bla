@@ -107,9 +107,13 @@ namespace TintSysDesk
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Nivel  n = new Nivel();
-            n.Inserir();
-            //CarregaComboNivel();
+            Usuario usuario = new Usuario(
+                txtNome.Text,txtEmail.Text,txtSenha.Text,
+                Nivel.ObterPorId(Convert.ToInt32(comboBox1.SelectedValue))
+            );
+            usuario.Inserir();
+            txtID.Text = usuario.Id.ToString();
+            CarregaGrid();
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -153,7 +157,16 @@ namespace TintSysDesk
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Usuario usuario = Usuario.ObterPorId(Convert.ToInt32(txtID.Text));
+            if (usuario != null)
+            {
+                txtNome.Text = usuario.Nome;
+                txtEmail.Text = usuario.Email;
+                txtSenha.Text = usuario.Senha;
+                comboBox1.SelectedValue= usuario.Nivel.Id;
+                txtEmail.Enabled= false;
+                checkBox1.Checked = usuario.Ativo;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
