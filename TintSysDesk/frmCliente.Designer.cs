@@ -32,7 +32,7 @@
             this.tpgDados = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.mktCpf = new System.Windows.Forms.MaskedTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.tpgEnderecos = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.tpgTelefones = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.cln_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cln_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cln_cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.tbcClientes.SuspendLayout();
             this.tpgDados.SuspendLayout();
             this.tpgEnderecos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcClientes
@@ -73,7 +73,7 @@
             // 
             this.tpgDados.Controls.Add(this.button3);
             this.tpgDados.Controls.Add(this.mktCpf);
-            this.tpgDados.Controls.Add(this.button2);
+            this.tpgDados.Controls.Add(this.btnConsultar);
             this.tpgDados.Controls.Add(this.btnInserir);
             this.tpgDados.Controls.Add(this.label4);
             this.tpgDados.Controls.Add(this.label3);
@@ -111,14 +111,15 @@
             this.mktCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.mktCpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
-            // button2
+            // btnConsultar
             // 
-            this.button2.Location = new System.Drawing.Point(300, 167);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Consultar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnConsultar.Location = new System.Drawing.Point(300, 167);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 5;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnInserir
             // 
@@ -239,21 +240,21 @@
             this.tpgTelefones.Text = "Telefones";
             this.tpgTelefones.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvClientes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cln_ID,
             this.cln_nome,
             this.cln_cpf,
             this.cln_email,
             this.cln_datacad,
             this.cln_ativo});
-            this.dataGridView1.Location = new System.Drawing.Point(258, 324);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(602, 226);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvClientes.Location = new System.Drawing.Point(258, 324);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.Size = new System.Drawing.Size(602, 226);
+            this.dgvClientes.TabIndex = 1;
             // 
             // cln_ID
             // 
@@ -302,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 612);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.tbcClientes);
             this.Name = "frmCliente";
             this.Text = "frmCliente";
@@ -311,7 +312,7 @@
             this.tpgDados.ResumeLayout(false);
             this.tpgDados.PerformLayout();
             this.tpgEnderecos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,10 +333,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox mktCpf;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn cln_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cln_nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn cln_cpf;

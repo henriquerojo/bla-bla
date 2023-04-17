@@ -97,11 +97,34 @@ namespace TintSysDesk
             );
             cliente.Inserir();
             txtID.Text = cliente.Id.ToString();
+            CarregaGrid();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(txtID.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void CarregaGrid()
+        {
+            List<Cliente> lista = Cliente.Listar();
+            int linha = 0;
+            dgvClientes.Rows.Clear();
+            foreach (Cliente item in lista)
+            {
+                dgvClientes.Rows.Add();
+                dgvClientes.Rows[linha].Cells[0].Value = item.Id.ToString();
+                dgvClientes.Rows[linha].Cells[1].Value = item.Nome;
+                dgvClientes.Rows[linha].Cells[2].Value = item.Cpf;
+                dgvClientes.Rows[linha].Cells[3].Value = item.Email;
+                dgvClientes.Rows[linha].Cells[4].Value = item.Datacad;
+                dgvClientes.Rows[linha].Cells[5].Value = item.Ativo;
+                linha++;
+            }
         }
     }
 }

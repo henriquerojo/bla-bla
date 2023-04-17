@@ -171,5 +171,32 @@ namespace TintSysClass
             Banco.Fechar(cmd);
             return cliente;
         }
+        public static List<Cliente> Listar(string nome = "")
+        {
+            List<Cliente> lista = new List<Cliente>();
+            var cmd = Banco.Abrir();
+            if (nome != string.Empty)
+            {
+                cmd.CommandText = "select * from clientes where nome like '%" + nome + "%'";
+            }
+            else
+            {
+                cmd.CommandText = "select * from clientes";
+            }
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lista.Add(new Cliente(
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetDateTime(4),
+                    dr.GetBoolean(5)
+                    ));
+            }
+            Banco.Fechar(cmd);
+            return lista;
+        }
     }
 }
