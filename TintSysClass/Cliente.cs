@@ -94,7 +94,11 @@ namespace TintSysClass
             Cpf = cpf; 
             Email = email;
         }
-
+        public Cliente(string nome, string cpf)
+        {
+            Nome = nome;
+            Email = email;  
+        }
         // Métodos da Classe
 
         public void Inserir()

@@ -90,7 +90,13 @@ namespace TintSysDesk
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
+            Cliente cliente = new Cliente(
+            txtNome.Text,
+            mktCpf.Text,
+            txtEmail.Text
+            );
+            cliente.Inserir();
+            txtID.Text = cliente.Id.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
