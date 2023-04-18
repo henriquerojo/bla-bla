@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -28,7 +29,11 @@ namespace TintSysClass
         public bool Ativo { get => ativo; set => ativo = value; } 
         
         // Métodos contrutores
-        public Usuario() { }
+        public Usuario()
+        {
+            ativo = false;
+            nivel = Nivel.ObterPorId(2);
+        }
         public Usuario(int id, string nome, string email, string senha, Nivel nivel, bool ativo)
         {
             Id = id;
@@ -70,9 +75,9 @@ namespace TintSysClass
                 usuario.Nome = dr.GetString(1);
                 usuario.Email = dr.GetString(2);
                 usuario.Nivel = Nivel.ObterPorId(dr.GetInt32(3));
+                Banco.Fechar(cmd);
             }
             return usuario;
-            Banco.Fechar(cmd);
         }
         public void Inserir()
         {

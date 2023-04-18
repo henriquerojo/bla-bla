@@ -37,7 +37,9 @@ namespace TintSysDesk
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-
+            CarregaComboNivel();
+            CarregaGrid();
+            CarregaGridNiveis();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
