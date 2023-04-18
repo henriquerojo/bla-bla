@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TintSysClass",
+    "\\TintSysDesk"
   ],
-  "SelectedNode": "\\TintSys.sln",
+  "SelectedNode": "\\TintSysDesk\\FrmUsuarios.cs",
   "PreviewInSolutionExplorer": false
 }
