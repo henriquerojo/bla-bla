@@ -14,6 +14,10 @@ namespace TintSysDesk
 {
     public partial class FrmUsuarios : Form
     {
+        public FrmUsuarios()
+        {
+            InitializeComponent();
+        }
         private void CarregaGrid()
         {
             List<Usuario> lista = Usuario.Listar();
@@ -30,10 +34,7 @@ namespace TintSysDesk
                 linha++;
             }
         }
-        public FrmUsuarios()
-        {
-            InitializeComponent();
-        }
+        
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
@@ -106,6 +107,8 @@ namespace TintSysDesk
         {
 
         }
+
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
